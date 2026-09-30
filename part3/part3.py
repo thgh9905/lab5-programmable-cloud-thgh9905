@@ -21,7 +21,7 @@ service = googleapiclient.discovery.build('compute', 'v1', credentials=credentia
 #
 def list_instances(compute, project, zone):
     result = compute.instances().list(project=project, zone=zone).execute()
-    return result['items'] if 'items' in result else None
+    return result.get('items', [])
 
 print("Your running instances are:")
 for instance in list_instances(service, project, 'us-west1-b'):
