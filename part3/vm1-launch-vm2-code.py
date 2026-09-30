@@ -75,11 +75,12 @@ def main():
            startup_script = f.read()
 
     zone = 'us-west1-c'
-    name = 'blog'
+    name = 'blog-vm2'
 
     create_instance(service, project, zone, name, startup_script)
     ip = get_external_ip_address(service, project, zone, name)
-    print(f"VM-2 Flask app will be available at http://{ip}:5000 (it'll take a while for it to work)")
+    print(f"\nVM-2 Flask app will be available at http://{ip}:5000") 
+    print("(it'll take a while for it to work)\n")
 
 
 if __name__ == '__main__':
