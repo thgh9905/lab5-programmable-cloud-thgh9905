@@ -39,7 +39,7 @@ def create_instance(compute, project, zone, name, snapshot_name): # Create a vm 
     # source_disk_image = image_response['selfLink']
     config = {
         'name': name,
-        'machineType': f"zones/{zone}/machineTypes/e2-micro",  # Set machine size to f1-micro
+        'machineType': f"zones/{zone}/machineTypes/f1-micro",  # Set machine size to f1-micro
         # Specify boot disk to use as source
         'disks': [ 
             {
@@ -79,7 +79,7 @@ def get_boot_disk_name(compute, project, zone, instance_name):
     raise Exception(f"No boot disk found on instance {instance_name}")
 
 def main():
-    zone = 'us-west1-c'
+    zone = 'us-west1-b'
     source_instance = 'blog'
     snapshot_name = f'base-snapshot-{source_instance}'
     disk_name = get_boot_disk_name(service, project, zone, source_instance)

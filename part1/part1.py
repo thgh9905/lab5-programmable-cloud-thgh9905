@@ -54,7 +54,7 @@ def create_instance(compute, project, zone, name, startup_script): # Create a vm
     source_disk_image = image_response['selfLink']
     config = {
         'name': name,
-        'machineType': f"zones/{zone}/machineTypes/e2-micro",  # Set machine size to f1-micro
+        'machineType': f"zones/{zone}/machineTypes/f1-micro",  # Set machine size to f1-micro
         # Specify boot disk to use as source
         'disks': [ 
             {
@@ -135,7 +135,7 @@ def main():
     with open('startup-script.sh') as f:
            startup_script = f.read()
 
-    zone = 'us-west1-c'
+    zone = 'us-west1-b'
     name = 'blog'
 
     firewall_rule(service, project)

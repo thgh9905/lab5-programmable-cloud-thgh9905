@@ -43,7 +43,7 @@ def create_instance(compute, project, zone, name, startup_script, vm2_startup_sc
     source_disk_image = image_response['selfLink']
     config = {
         'name': name,
-        'machineType': f"zones/{zone}/machineTypes/e2-micro",  # Set machine size to f1-micro
+        'machineType': f"zones/{zone}/machineTypes/f1-micro",  # Set machine size to f1-micro
         # Specify boot disk to use as source
         'disks': [ 
             {
@@ -90,7 +90,7 @@ def create_instance(compute, project, zone, name, startup_script, vm2_startup_sc
     
 
 def main():
-    zone = 'us-west1-c'
+    zone = 'us-west1-b'
     name = 'blog'
 
     with open('vm1-startup-script.sh') as f:
